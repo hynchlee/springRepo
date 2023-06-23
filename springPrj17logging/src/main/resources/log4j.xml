@@ -6,10 +6,10 @@
 	
 	<!-- 파일 -->
 	<appender name="fa" class="org.apache.log4j.FileAppender">
-		<param name="file" value="D://dev//log//khLogFile.log"/>
-		<param name="append" value="true"/>
+		<param name="file" value="D://dev//log//khLogFile.log" />
+		<param name="append" value="true" />
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[%d{yyyy-mm-dd HH시 MM분}] %-5p : %c - %m%n" />
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH시mm분ss초}] %-5p : %c - %m%n" />
 		</layout>
 	</appender>
 	
@@ -17,15 +17,15 @@
 	<appender name="console" class="org.apache.log4j.ConsoleAppender">
 		<param name="Target" value="System.out" />
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[%d{yyyy-mm-dd HH시 MM분}] %-5p : %c - %m%n" />
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH시mm분ss초}] %-5p : %c - %m%n" />
 		</layout>
 	</appender>
 	
 	<!-- Root Logger -->
 	<root>
 		<priority value="trace" />
+		<appender-ref ref="fa" />
 		<appender-ref ref="console" />
-		<appender-ref ref="fa"
 	</root>
 	
 </log4j:configuration>
