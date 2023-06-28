@@ -59,4 +59,9 @@ public class GalleryController {
 
 	}
 
+	public void m01() {
+		MemberVo.build();
+	}
+	
+	
 }
