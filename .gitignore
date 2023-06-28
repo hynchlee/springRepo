@@ -149,3 +149,12 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/git,java,maven,windows,eclipse
+Test/pom.xml
+Test/src/main/java/com/kh/test/model/Test.java
+Test/src/main/java/com/kh/test/model/TestDao.java
+Test/src/main/resources/log4j.xml
+Test/src/main/webapp/WEB-INF/web.xml
+Test/src/main/webapp/WEB-INF/spring/root-context.xml
+Test/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml
+Test/src/main/webapp/WEB-INF/views/home.jsp
+Test/src/test/resources/log4j.xml
