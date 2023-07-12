@@ -1,0 +1,27 @@
+#wrap{
+    border: 5px solid black;
+    box-sizing: border-box;
+    width: 800px;
+    margin: auto;
+}
+
+body, *{
+    margin: 0;
+}
+
+header{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    box-sizing: border-box;
+    border: 5px solid gray;
+    text-align: center;
+    width: 100%;
+    height: 200px;
+}
+
+.login-area{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+}
