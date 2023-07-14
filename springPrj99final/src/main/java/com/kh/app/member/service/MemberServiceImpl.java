@@ -1,10 +1,13 @@
 package com.kh.app.member.service;
 
+import javax.security.auth.login.LoginException;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.kh.app.exception.LoginFailException;
 import com.kh.app.member.dao.MemberDaoImpl;
 import com.kh.app.member.vo.MemberVo;
 
@@ -37,17 +40,25 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public MemberVo login(MemberVo vo) {
+		
+		MemberVo loginMember = null;
+		try {
+			loginMember = dao.login(sst, vo);
+			
+//			boolean isMatch = loginMember.getPwd().equals(vo.getPwd());
+//			boolean isMatch = pwdEncoder.matches(평문, 암호문);
+			// 암호화 처리
+			boolean isMatch = pwdEncoder.matches(vo.getPwd(), loginMember.getPwd());
 
-		MemberVo loginMember = dao.login(sst, vo);
-
-//		boolean isMatch = loginMember.getPwd().equals(vo.getPwd());
-//		boolean isMatch = pwdEncoder.matches(평문, 암호문);
-		// 암호화 처리
-		boolean isMatch = pwdEncoder.matches(vo.getPwd(), loginMember.getPwd());
-
-		if (!isMatch) {
-			return null;
+			if (!isMatch) {
+				throw new LoginFailException();
+			}
+			
+		} catch (Exception e) {
+			throw new LoginFailException();
 		}
+
+
 
 		return loginMember;
 	}
@@ -61,5 +72,5 @@ public class MemberServiceImpl implements MemberService {
 	public int quit(MemberVo vo) {
 		return dao.quit(sst, vo);
 	}
-
+	
 }

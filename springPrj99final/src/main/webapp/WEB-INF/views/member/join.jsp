@@ -33,7 +33,7 @@
 		function checkValid(){
 			const pwdInputTag = document.querySelector("input[name='pwd']")
 			const pwd = pwdInputTag.value;
-			if(pwd.length < 4){
+			if(pwd.length() < 4){
 				alert("패스워드는 4글자 이상 입력해주세요.");
 				return false;
 			}

@@ -38,6 +38,12 @@
             </div>
         </form>
     </header>
+    <nav id="nav">
+    	<a href="${root}/board/list?p=1">자유게시판</a>
+    	<a href="#">목록1</a>
+    	<a href="#">목록2</a>
+    	<a href="#">목록3</a>
+    </nav>
 
 </body>
 </html>
